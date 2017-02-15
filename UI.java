@@ -5,13 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-
 /**
  * @author azamani
  *
  */
 public class UI {
-	
+
 	class Card {
 
 		private String type;
@@ -27,8 +26,7 @@ public class UI {
 		public int getIntValue() {
 			return Integer.parseInt(value);
 		}
-		
-		
+
 		public boolean isShown() {
 			return shown;
 		}
@@ -54,7 +52,6 @@ public class UI {
 		}
 
 	}
-
 
 	private static final String SIOUFA = "s";
 	private static final String ZRAWTE = "z";
@@ -87,7 +84,7 @@ public class UI {
 		distributedCards.add(ui.new Card(DHAB, "10", false));
 		distributedCards.add(ui.new Card(DHAB, "11", false));
 		distributedCards.add(ui.new Card(DHAB, "12", false));
-		
+
 		distributedCards.add(ui.new Card(TBO9A, "1", false));
 		distributedCards.add(ui.new Card(TBO9A, "2", false));
 		distributedCards.add(ui.new Card(TBO9A, "3", false));
@@ -120,7 +117,7 @@ public class UI {
 		distributedCards.add(ui.new Card(SIOUFA, "10", false));
 		distributedCards.add(ui.new Card(SIOUFA, "11", false));
 		distributedCards.add(ui.new Card(SIOUFA, "12", false));
-	}                        
+	}
 
 	private static void distribute() {
 		if (!distributedCards.isEmpty()) {
@@ -265,7 +262,7 @@ public class UI {
 		playSeqNumbers(seqInt, selectedCard.getIntValue(), seqCards);
 		for (Card card : seqCards) {
 			for (Card current : boardCards) {
-				if (current.getValue().equals(card.getValue())) {
+				if (current.getValue().equals(card.getValue()) && !checkDuplicated(card.getIntValue(),removableSeq)) {
 					System.out.println(RIGHT_TABULATION + " +1 [" + card.getValue() + "]");
 					removableSeq.add(current);
 					playerScore++;
@@ -273,6 +270,16 @@ public class UI {
 			}
 		}
 		pick(removableSeq);
+	}
+
+	private static boolean checkDuplicated(int value, List<Card> removableSeq) {
+		boolean exists  = false;
+		for (Card card : removableSeq) {
+			if( card.getIntValue() == value) {
+				 exists = true;
+			}
+		}
+		return exists;
 	}
 
 	private static void pick(List<Card> values) {
@@ -385,4 +392,5 @@ public class UI {
 			System.out.println("No more cards !");
 		}
 	}
+
 }
