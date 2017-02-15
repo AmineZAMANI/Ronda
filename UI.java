@@ -211,7 +211,7 @@ public class UI {
 			System.out.println(RIGHT_TABULATION + "CPU serve " + selectedCard.getValue() + " " + selectedCard.getType());
 			if (existsInBoard(selectedCard) != null) {
 				boardCards.remove(boardCard);
-				if (boardCards.size() == 0) {
+				if (boardCards.isEmpty()) {
 					System.out.println(RIGHT_TABULATION + "Missa for CPU +2");
 					cpuScore += 2;
 				} else {
