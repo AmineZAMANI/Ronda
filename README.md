@@ -8,7 +8,7 @@ It is played with 2 players (or 2 teams of 2 players). The play goes around the 
 
 # How to :
 
-1) Execute UI.java as java main class (Compile with java 7)
+1) Execute UI.java as java main class (Compile with java 7) \n
 2) Type cardValue cardType, example you can type 2 s Or 10 t Or 5 d
 
 # Contacts :
